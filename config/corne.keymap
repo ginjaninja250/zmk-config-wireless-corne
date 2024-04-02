@@ -27,7 +27,7 @@
    &kp ESC  &kp Q  &kp W  &kp F  &kp P  &kp B    &kp J  &kp L  &kp U     &kp Y   &kp SEMI &kp BSLH
    &kp TAB  &kp A  &kp R  &kp S  &kp T  &kp G    &kp M  &kp N  &kp E     &kp I   &kp O    &kp SQT
    &kp LGUI &kp Z  &kp X  &kp C  &kp D  &kp V    &kp K  &kp H  &kp COMMA &kp DOT &kp FSLH &kp RET
-                   &kp LCTRL &kp LSHIFT &kp SPACE &kp BSPC &trans  &tog NUM
+                   &kp LCTRL &kp LSHIFT &kp SPACE &kp BSPC &trans  &to NUM
                         >;
                 };
                 num_layer {
@@ -41,7 +41,7 @@
    &kp ESC  &kp FSLH        &kp N1 &kp N2 &kp N3 &kp EQUAL    &kp LPAR  &kp RPAR  &kp UP    &kp LBKT &kp RBKT     &kp BSLH
    &kp TAB  &kp KP_MULTIPLY &kp N4 &kp N5 &kp N6 &kp PLUS     &kp EXCL  &kp LEFT  &kp DOWN &kp RIGHT &kp GRAVE    &kp SQT
    &kp LGUI &kp CARET       &kp N7 &kp N8 &kp N9 &kp MINUS    &kp PG_UP &kp PG_DN &kp COMMA &kp DOT &kp C_AC_PASTE &kp RET
-                    	    &kp LCTRL &kp LSHIFT &kp SPACE &kp DEL &tog DEF  &tog FUN
+                    	    &kp LCTRL &kp LSHIFT &kp SPACE &kp DEL &to DEF  &to FUN
                         >;
                 };
                 fun_layer {
@@ -55,7 +55,7 @@
    &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
    &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
    &kp LSHFT  &trans       &trans       &trans       &trans       &kp C_SLEEP    &trans   &trans   &trans &trans    &trans &trans
-                          	        &kp LCTRL    &kp LSHIFT   &kp SPACE      &kp BSPC &tog NUM &tog QWERT
+                          	        &kp LCTRL    &kp LSHIFT   &kp SPACE      &kp BSPC &to NUM &to QWERT
                         >;
                 };
                 qwert_layer {
@@ -69,7 +69,7 @@
    &kp TAB   &kp Q  &kp W  &kp E  &kp R  &kp T      &kp Y  &kp U  &kp I     &kp O   &kp P    &kp BSPC
    &kp LCTRL &kp A  &kp S  &kp D  &kp F  &kp G      &kp H  &kp J  &kp K     &kp L   &kp SEMI &kp SQT
    &kp LSHFT &kp Z  &kp X  &kp C  &kp V  &kp B      &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                    &kp LCTRL &kp LSHIFT &kp SPACE &kp BSPC &tog FUN &trans
+                    &kp LCTRL &kp LSHIFT &kp SPACE &kp BSPC &to FUN &kp EXCL
                         >;
                 };
              
