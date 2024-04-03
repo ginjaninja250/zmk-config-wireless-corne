@@ -32,29 +32,29 @@
                 };
                 num_layer {
 // -----------------------------------------------------------------------------------------
-// | ESC  |  /  |  1  | 2(@) | 3(#) |  =  |   |  (  |  )   | UP | {[  |  ]} | BSLH |
-// | TAB  |  *  | 4($)| 5(%) |  6   |  +  |   |  !  | LEFT |DOWN|RIGHT|  `  |  '   |
-// | LGUI |  ^  |  7  |  8   |  9   | - _ |   | PGUP| PGDN | ,  |  .  |PASTE| ENT  |
-//                    | CTRL |LSHFT | SPC |   | DEL | LWR  | RSE |
+// | ESC  |  /  |  1  | 2(@) | 3(#) |  =  |   |  (   |  )   |  UP  | {[  |  ]} | BSLH |
+// | TAB  |  *  | 4($)| 5(%) | 6(^) |  +  |   |  !   | LEFT | DOWN |RIGHT|  `  |  '   |
+// | LGUI |  0  |  7  |  8   |  9   | - _ |   | PGUP | PGDN |  ,   |  .  |PASTE| ENT  |
+//                    | CTRL |LSHFT | SPC |   | BSPC | LWR  | RSE  |
                         display-name = "Number";
                         bindings = <
    &kp ESC  &kp FSLH        &kp N1 &kp N2 &kp N3 &kp EQUAL    &kp LPAR  &kp RPAR  &kp UP    &kp LBKT &kp RBKT     &kp BSLH
    &kp TAB  &kp KP_MULTIPLY &kp N4 &kp N5 &kp N6 &kp PLUS     &kp EXCL  &kp LEFT  &kp DOWN &kp RIGHT &kp GRAVE    &kp SQT
-   &kp LGUI &kp CARET       &kp N7 &kp N8 &kp N9 &kp MINUS    &kp PG_UP &kp PG_DN &kp COMMA &kp DOT &kp C_AC_PASTE &kp RET
-                    	    &kp LCTRL &kp LSHIFT &kp SPACE &kp DEL &to DEF  &to FUN
+   &kp LGUI &kp N0          &kp N7 &kp N8 &kp N9 &kp MINUS    &kp PG_UP &kp PG_DN &kp COMMA &kp DOT &kp C_AC_PASTE &kp RET
+                    	    &kp LCTRL &kp LSHIFT &kp SPACE &kp BSPC &to DEF  &to FUN
                         >;
                 };
                 fun_layer {
 // -----------------------------------------------------------------------------------------
 // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
 // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |SLEEP|   |     |     |     |     |     |      |
+// | SHFT |     |     |     |     | DEL |   |     |     |     |     |     |      |
 //                    | GUI |     | SPC |   | ALT |     |     |
                         display-name = "Function";
                         bindings = <
    &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
    &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &kp C_SLEEP    &trans   &trans   &trans &trans    &trans &trans
+   &kp LSHFT  &trans       &trans       &trans       &trans       &kp DEL    &trans   &trans   &trans &trans    &trans &trans
                           	        &kp LCTRL    &kp LSHIFT   &kp SPACE      &kp BSPC &to NUM &to QWERT
                         >;
                 };
