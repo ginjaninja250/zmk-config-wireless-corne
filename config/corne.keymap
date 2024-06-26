@@ -53,7 +53,7 @@
                         display-name = "Function";
                         bindings = <
    &kp ESC  &kp F1  &kp F2  &kp F3  &kp F4   &kp DEL   &kp PG_UP  &trans     &trans       &trans        &trans       &bt BT_CLR
-   &bt TAB  &kp F5  &kp F6  &kp F7  &kp F8   &kp ALT   &kp PG_DN &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+   &kp TAB  &kp F5  &kp F6  &kp F7  &kp F8   &kp ALT   &kp PG_DN &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
    &kp LGUI &kp F9  &kp F10 &kp F11 &kp F12  &trans    &trans      &trans     &trans       &trans        &trans       &trans
                      &kp LCTRL &kp LSHIFT &kp SPACE    &kp BSPC &to NUM &to QWERT
                         >;
