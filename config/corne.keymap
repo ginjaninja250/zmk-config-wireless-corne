@@ -178,14 +178,14 @@
 // ├───────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
 // │       │  0   │ 7/F9 │ 8/F10│ 9/F11│ -/F12│   │ PgUp │ PgDn │  ,   │  .   │  ~   │      │
 // └───────┴──────┴──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┴──────┴──────┴──────┘
-//                       │ LALT │LSHFT │  SPC │   │ BSPC │togNUM│CFG/RET│
+//                       │LCTRL │LSHFT │ SPC │  │ BSPC │togNUM│CFG/RET│
 //                       └──────┴──────┴──────┘   └──────┴──────┴───────┘
             display-name = "Num";
             bindings = <
    &kp ESC      &kp FSLH     &mt F1 N1    &mt F2 N2     &mt F3 N3     &mt F4 EQUAL  &kp LPAR     &kp RPAR     &kp UP       &kp LBKT     &kp RBKT      &kp BSLH
    &kp TAB      &kp ASTRK    &mt F5 N4    &mt F6 N5     &mt F7 N6     &mt F8 PLUS   &kp EXCL     &kp LEFT     &kp DOWN     &kp RIGHT    &kp GRAVE     &kp SQT
    &trans       &kp N0       &mt F9 N7    &mt F10 N8    &mt F11 N9    &mt F12 MINUS &kp PG_UP    &kp PG_DN    &kp COMMA    &kp DOT      &kp TILDE     &trans
-                                          &kp LALT      &kp LSHFT     &kp SPACE     &kp BSPC     &tog NUM     &lt FUN RET
+                                          &kp LCTRL      &kp LSHFT     &kp SPACE     &kp BSPC     &tog NUM     &lt FUN RET
             >;
         };
 
