@@ -58,27 +58,42 @@
         bt_win: bt_win {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 0 &to WIN>;
+            bindings
+                = <&bt BT_SEL 0>
+                , <&to WIN>
+                ;
         };
         bt_mac: bt_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 1 &to MAC>;
+            bindings
+                = <&bt BT_SEL 1>
+                , <&to MAC>
+                ;
         };
         bt_3: bt_3 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 2 &to DEF>;
+            bindings
+                = <&bt BT_SEL 2>
+                , <&to DEF>
+                ;
         };
         bt_4: bt_4 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 3 &to DEF>;
+            bindings
+                = <&bt BT_SEL 3>
+                , <&to DEF>
+                ;
         };
         bt_5: bt_5 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 4 &to DEF>;
+            bindings
+                = <&bt BT_SEL 4>
+                , <&to DEF>
+                ;
         };
     };
 
