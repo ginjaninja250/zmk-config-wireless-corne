@@ -172,19 +172,19 @@
 // Right side restores arrows, brackets, and navigation from original layout.
 // togNUM on right thumb to exit; hold CFG/RET for config layer.
 // ┌───────┬──────┬──────┬──────┬──────┬──────┐   ┌──────┬──────┬──────┬──────┬──────┬──────┐
-// │  ESC  │ 1/F1 │ 2/F2 │ 3/F3 │ =/F4 │  /   │   │  (   │  )   │  ↑   │  [   │  ]   │  \   │
+// │  ESC  │  /   │ 1/F1 │ 2/F2 │ 3/F3 │ =/F4 │   │  (   │  )   │  ↑   │  [   │  ]   │  \   │
 // ├───────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
-// │  TAB  │ 4/F5 │ 5/F6 │ 6/F7 │ +/F8 │  *   │   │  !   │  ←   │  ↓   │  →   │  `   │  '   │
+// │  TAB  │  *   │ 4/F5 │ 5/F6 │ 6/F7 │ +/F8 │   │  !   │  ←   │  ↓   │  →   │  `   │  '   │
 // ├───────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
-// │       │ 7/F9 │ 8/F10│ 9/F11│ -/F12│  0   │   │ PgUp │ PgDn │  ,   │  .   │  ~   │      │
+// │       │  0   │ 7/F9 │ 8/F10│ 9/F11│ -/F12│   │ PgUp │ PgDn │  ,   │  .   │  ~   │      │
 // └───────┴──────┴──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┴──────┴──────┴──────┘
 //                       │ LALT │LSHFT │  SPC │   │ BSPC │togNUM│CFG/RET│
 //                       └──────┴──────┴──────┘   └──────┴──────┴───────┘
             display-name = "Num";
             bindings = <
-   &kp ESC      &mt F1 N1    &mt F2 N2    &mt F3 N3     &mt F4 EQUAL  &kp FSLH      &kp LPAR     &kp RPAR     &kp UP       &kp LBKT     &kp RBKT      &kp BSLH
-   &kp TAB      &mt F5 N4    &mt F6 N5    &mt F7 N6     &mt F8 PLUS   &kp ASTRK     &kp EXCL     &kp LEFT     &kp DOWN     &kp RIGHT    &kp GRAVE     &kp SQT
-   &trans       &mt F9 N7    &mt F10 N8   &mt F11 N9    &mt F12 MINUS &kp N0        &kp PG_UP    &kp PG_DN    &kp COMMA    &kp DOT      &kp TILDE     &trans
+   &kp ESC      &kp FSLH     &mt F1 N1    &mt F2 N2     &mt F3 N3     &mt F4 EQUAL  &kp LPAR     &kp RPAR     &kp UP       &kp LBKT     &kp RBKT      &kp BSLH
+   &kp TAB      &kp ASTRK    &mt F5 N4    &mt F6 N5     &mt F7 N6     &mt F8 PLUS   &kp EXCL     &kp LEFT     &kp DOWN     &kp RIGHT    &kp GRAVE     &kp SQT
+   &trans       &kp N0       &mt F9 N7    &mt F10 N8    &mt F11 N9    &mt F12 MINUS &kp PG_UP    &kp PG_DN    &kp COMMA    &kp DOT      &kp TILDE     &trans
                                           &kp LALT      &kp LSHFT     &kp SPACE     &kp BSPC     &tog NUM     &lt FUN RET
             >;
         };
