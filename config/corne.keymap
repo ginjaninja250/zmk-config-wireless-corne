@@ -129,27 +129,31 @@
         };
 
         win_layer {
-// Windows — ZMK sends raw QWERTY HID codes.
-// Install Colemak-DH layout from colemakmods.github.io/mod-dh on your PC.
+// Windows — raw QWERTY HID codes; pair with US ANSI Colemak-DH OS layout.
 // Windows OS remaps QWERTY -> Colemak-DH for typing; games read raw QWERTY directly.
 // Switch to this profile with bt_win on the FUN layer (remembers across reboots).
+// NOTE: bottom-left scancodes shifted (B Z X C V) to undo ANSI Colemak-DH's Z
+// relocation, landing z back in the corner so the row outputs z x c d v.
+// LGUI added on bottom-left outer key (Win key).
 // ┌───────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬──────┐
 // │  ESC  │  Q  │  W  │  E  │  R  │  T  │   │  Y  │  U  │  I  │  O  │  P  │  \   │
 // ├───────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
 // │  TAB  │GUI:A│ALT:S│SFT:D│CTL:F│  G  │   │  H  │CTL:J│SFT:K│ALT:L│GUI:;│  '   │
 // ├───────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
-// │       │  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  /  │      │
+// │ LGUI  │ z   │ x   │ c   │ d   │ v   │   │  N  │  M  │  ,  │  .  │  /  │      │
 // └───────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┴─────┴─────┴──────┘
 //                     │LCTRL│LSHFT│ SPC │   │BSPC │togNUM│FUN/RET│
 //                     └─────┴─────┴─────┘   └─────┴──────┴───────┘
+//  (sends raw B Z X C V; outputs z x c d v after ANSI Colemak-DH)
             display-name = "Windows";
             bindings = <
    &kp ESC      &kp Q        &kp W        &kp E         &kp R         &kp T         &kp Y        &kp U        &kp I        &kp O        &kp P         &kp BSLH
    &kp TAB      &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F  &kp G         &kp H        &hmr RCTRL J &hmr RSHFT K &hmr RALT L  &hmr RGUI SEMI &kp SQT
-   &trans       &kp Z        &kp X        &kp C         &kp V         &kp B         &kp N        &kp M        &kp COMMA    &kp DOT      &kp FSLH      &trans
+   &kp LGUI     &kp B        &kp Z        &kp X         &kp C         &kp V         &kp N        &kp M        &kp COMMA    &kp DOT      &kp FSLH      &trans
                                           &kp LCTRL     &kp LSHFT     &kp SPACE     &bspc_del    &tog NUM     &lt FUN RET
             >;
         };
+
 
         mac_layer {
 // Mac — same Colemak-DH firmware output as DEF, no OS layout changes needed.
