@@ -1,0 +1,3 @@
+name: zmk-config-overrides
+build:
+  kconfig: Kconfig
