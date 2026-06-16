@@ -5,7 +5,11 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      # Pinned to the v0.3 release (Zephyr 3.5). Tracking `main` pulled the
+      # Zephyr 4.1 regression where the nice!view central half fails to wake
+      # from deep sleep and drains the battery (ZMK issue #3207). v0.3 also
+      # predates the #3219 nice!view rendering regression.
+      revision: v0.3
       import: app/west.yml
   self:
     path: config

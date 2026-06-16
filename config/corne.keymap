@@ -7,9 +7,13 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-// Layer indices
-#define DEF 0   // Colemak-DH firmware — default for new/unknown devices
-#define WIN 1   // QWERTY output — pair with Windows Colemak-DH OS layout (BT 0)
+// Layer indices.
+// IMPORTANT: layer numbers are assigned by the ORDER of the layer nodes under
+// keymap{} below, NOT by these #defines. ZMK always boots into layer 0 and does
+// NOT persist the active layer across reboots/power-cycles. WIN is layer 0 (the
+// first node) so the board comes up in the Windows/QWERTY layout on power-on.
+#define WIN 0   // QWERTY output — pair with Windows Colemak-DH OS layout (BT 0). Boot default.
+#define DEF 1   // Colemak-DH firmware — works on any device without OS layout changes
 #define MAC 2   // Colemak-DH firmware, Ctrl/GUI swapped on homerow (BT 1, Mac)
 #define NUM 3   // Numbers, symbols, F1-F10 as hold-taps on number row
 #define FUN 4   // BT profile macros, F-keys, navigation, utilities
@@ -60,8 +64,10 @@
 
     macros {
         // Each macro selects a BT profile AND switches the base layer to match.
-        // ZMK persists the active layer across reboots, so after the first press
-        // the correct layer will be restored automatically on next power-on.
+        // NOTE: ZMK does NOT persist the active layer across reboots — on every
+        // power-on it returns to layer 0 (WIN). These macros only switch the
+        // base layer for the current session; re-press the matching macro after
+        // a reboot if you need MAC or plain Colemak.
         bt_win: bt_win {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -107,31 +113,11 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-// Colemak-DH — ZMK sends Colemak-DH HID codes directly.
-// Works on any device without OS layout changes (Mac, phones, new devices).
-// ┌───────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬──────┐
-// │  ESC  │  Q  │  W  │  F  │  P  │  B  │   │  J  │  L  │  U  │  Y  │  ;  │  \   │
-// ├───────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
-// │  TAB  │GUI:A│ALT:R│SFT:S│CTL:T│  G  │   │  M  │CTL:N│SFT:E│ALT:I│GUI:O│  '   │
-// ├───────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
-// │       │  Z  │  X  │  C  │  D  │  V  │   │  K  │  H  │  ,  │  .  │  /  │      │
-// └───────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┴─────┴─────┴──────┘
-//                     │LCTRL│LSHFT│ SPC │   │BSPC │togNUM│FUN/RET│
-//                     └─────┴─────┴─────┘   └─────┴──────┴───────┘
-            display-name = "Colemak";
-            bindings = <
-   &kp ESC      &kp Q        &kp W        &kp F         &kp P         &kp B         &kp J        &kp L        &kp U        &kp Y        &kp SEMI      &kp BSLH
-   &kp TAB      &hml LGUI A  &hml LALT R  &hml LSHFT S  &hml LCTRL T  &kp G         &kp M        &hmr RCTRL N &hmr RSHFT E &hmr RALT I  &hmr RGUI O   &kp SQT
-   &trans       &kp Z        &kp X        &kp C         &kp D         &kp V         &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH      &trans
-                                          &kp LCTRL     &kp LSHFT     &kp SPACE     &bspc_del    &tog NUM     &lt FUN RET
-            >;
-        };
-
         win_layer {
 // Windows — raw QWERTY HID codes; pair with US ANSI Colemak-DH OS layout.
 // Windows OS remaps QWERTY -> Colemak-DH for typing; games read raw QWERTY directly.
-// Switch to this profile with bt_win on the FUN layer (remembers across reboots).
+// Switch to this profile with bt_win on the FUN layer. This is also the boot
+// default layer (layer 0), so the board comes up here after every power-on.
 // NOTE: bottom-left scancodes shifted (B Z X C V) to undo ANSI Colemak-DH's Z
 // relocation, landing z back in the corner so the row outputs z x c d v.
 // LGUI added on bottom-left outer key (Win key).
@@ -150,6 +136,27 @@
    &kp ESC      &kp Q        &kp W        &kp E         &kp R         &kp T         &kp Y        &kp U        &kp I        &kp O        &kp P         &kp BSLH
    &kp TAB      &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F  &kp G         &kp H        &hmr RCTRL J &hmr RSHFT K &hmr RALT L  &hmr RGUI SEMI &kp SQT
    &kp LGUI     &kp B        &kp Z        &kp X         &kp C         &kp V         &kp N        &kp M        &kp COMMA    &kp DOT      &kp FSLH      &trans
+                                          &kp LCTRL     &kp LSHFT     &kp SPACE     &bspc_del    &tog NUM     &lt FUN RET
+            >;
+        };
+
+        default_layer {
+// Colemak-DH — ZMK sends Colemak-DH HID codes directly.
+// Works on any device without OS layout changes (Mac, phones, new devices).
+// ┌───────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬──────┐
+// │  ESC  │  Q  │  W  │  F  │  P  │  B  │   │  J  │  L  │  U  │  Y  │  ;  │  \   │
+// ├───────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
+// │  TAB  │GUI:A│ALT:R│SFT:S│CTL:T│  G  │   │  M  │CTL:N│SFT:E│ALT:I│GUI:O│  '   │
+// ├───────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
+// │       │  Z  │  X  │  C  │  D  │  V  │   │  K  │  H  │  ,  │  .  │  /  │      │
+// └───────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┴─────┴─────┴──────┘
+//                     │LCTRL│LSHFT│ SPC │   │BSPC │togNUM│FUN/RET│
+//                     └─────┴─────┴─────┘   └─────┴──────┴───────┘
+            display-name = "Colemak";
+            bindings = <
+   &kp ESC      &kp Q        &kp W        &kp F         &kp P         &kp B         &kp J        &kp L        &kp U        &kp Y        &kp SEMI      &kp BSLH
+   &kp TAB      &hml LGUI A  &hml LALT R  &hml LSHFT S  &hml LCTRL T  &kp G         &kp M        &hmr RCTRL N &hmr RSHFT E &hmr RALT I  &hmr RGUI O   &kp SQT
+   &trans       &kp Z        &kp X        &kp C         &kp D         &kp V         &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH      &trans
                                           &kp LCTRL     &kp LSHFT     &kp SPACE     &bspc_del    &tog NUM     &lt FUN RET
             >;
         };
