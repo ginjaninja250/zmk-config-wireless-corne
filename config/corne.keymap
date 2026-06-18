@@ -13,8 +13,8 @@
 // NOT persist the active layer across reboots/power-cycles. WIN is layer 0 (the
 // first node) so the board comes up in the Windows/QWERTY layout on power-on.
 #define WIN 0   // QWERTY output — pair with Windows Colemak-DH OS layout (BT 0). Boot default.
-#define DEF 1   // Colemak-DH firmware — works on any device without OS layout changes
-#define MAC 2   // Colemak-DH firmware, Ctrl/GUI swapped on homerow (BT 1, Mac)
+#define MAC 1   // Colemak-DH firmware, Ctrl/GUI swapped on homerow (BT 1, Mac)
+#define DEF 2   // Colemak-DH firmware — works on any device without OS layout changes
 #define NUM 3   // Numbers, symbols, F1-F10 as hold-taps on number row
 #define FUN 4   // BT profile macros, F-keys, navigation, utilities
 
@@ -33,9 +33,9 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <230>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>;
+            require-prior-idle-ms = <180>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 41>;
             hold-trigger-on-release;
@@ -46,9 +46,9 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <230>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>;
+            require-prior-idle-ms = <180>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
             hold-trigger-on-release;
@@ -140,27 +140,6 @@
             >;
         };
 
-        default_layer {
-// Colemak-DH — ZMK sends Colemak-DH HID codes directly.
-// Works on any device without OS layout changes (Mac, phones, new devices).
-// ┌───────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬──────┐
-// │  ESC  │  Q  │  W  │  F  │  P  │  B  │   │  J  │  L  │  U  │  Y  │  ;  │  \   │
-// ├───────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
-// │  TAB  │GUI:A│ALT:R│SFT:S│CTL:T│  G  │   │  M  │CTL:N│SFT:E│ALT:I│GUI:O│  '   │
-// ├───────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
-// │       │  Z  │  X  │  C  │  D  │  V  │   │  K  │  H  │  ,  │  .  │  /  │      │
-// └───────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┴─────┴─────┴──────┘
-//                     │LCTRL│LSHFT│ SPC │   │BSPC │togNUM│FUN/RET│
-//                     └─────┴─────┴─────┘   └─────┴──────┴───────┘
-            display-name = "Colemak";
-            bindings = <
-   &kp ESC      &kp Q        &kp W        &kp F         &kp P         &kp B         &kp J        &kp L        &kp U        &kp Y        &kp SEMI      &kp BSLH
-   &kp TAB      &hml LGUI A  &hml LALT R  &hml LSHFT S  &hml LCTRL T  &kp G         &kp M        &hmr RCTRL N &hmr RSHFT E &hmr RALT I  &hmr RGUI O   &kp SQT
-   &trans       &kp Z        &kp X        &kp C         &kp D         &kp V         &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH      &trans
-                                          &kp LCTRL     &kp LSHFT     &kp SPACE     &bspc_del    &tog NUM     &lt FUN RET
-            >;
-        };
-
         mac_layer {
 // Mac — same Colemak-DH firmware output as DEF, no OS layout changes needed.
 // Ctrl and GUI swapped on homerow: T-hold = Cmd, matches Windows Ctrl muscle memory.
@@ -180,6 +159,27 @@
    &kp TAB      &hml LCTRL A &hml LALT R  &hml LSHFT S  &hml LGUI T   &kp G         &kp M        &hmr RGUI N  &hmr RSHFT E &hmr RALT I  &hmr RCTRL O  &kp SQT
    &trans       &kp Z        &kp X        &kp C         &kp D         &kp V         &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH      &trans
                                           &kp LGUI      &kp LSHFT     &kp SPACE     &bspc_del    &tog NUM     &lt FUN RET
+            >;
+        };
+
+        default_layer {
+// Colemak-DH — ZMK sends Colemak-DH HID codes directly.
+// Works on any device without OS layout changes (Mac, phones, new devices).
+// ┌───────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬──────┐
+// │  ESC  │  Q  │  W  │  F  │  P  │  B  │   │  J  │  L  │  U  │  Y  │  ;  │  \   │
+// ├───────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
+// │  TAB  │GUI:A│ALT:R│SFT:S│CTL:T│  G  │   │  M  │CTL:N│SFT:E│ALT:I│GUI:O│  '   │
+// ├───────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
+// │       │  Z  │  X  │  C  │  D  │  V  │   │  K  │  H  │  ,  │  .  │  /  │      │
+// └───────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┴─────┴─────┴──────┘
+//                     │LCTRL│LSHFT│ SPC │   │BSPC │togNUM│FUN/RET│
+//                     └─────┴─────┴─────┘   └─────┴──────┴───────┘
+            display-name = "Colemak";
+            bindings = <
+   &kp ESC      &kp Q        &kp W        &kp F         &kp P         &kp B         &kp J        &kp L        &kp U        &kp Y        &kp SEMI      &kp BSLH
+   &kp TAB      &hml LGUI A  &hml LALT R  &hml LSHFT S  &hml LCTRL T  &kp G         &kp M        &hmr RCTRL N &hmr RSHFT E &hmr RALT I  &hmr RGUI O   &kp SQT
+   &trans       &kp Z        &kp X        &kp C         &kp D         &kp V         &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH      &trans
+                                          &kp LCTRL     &kp LSHFT     &kp SPACE     &bspc_del    &tog NUM     &lt FUN RET
             >;
         };
 
