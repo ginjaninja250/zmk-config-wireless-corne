@@ -120,13 +120,14 @@
 // default layer (layer 0), so the board comes up here after every power-on.
 // NOTE: bottom-left scancodes shifted (B Z X C V) to undo ANSI Colemak-DH's Z
 // relocation, landing z back in the corner so the row outputs z x c d v.
-// LGUI added on bottom-left outer key (Win key).
+// No homerow mods on this layer (gaming-friendly). Mods: Ctrl/Shift on left
+// thumbs, LGUI (Win key) on bottom-left outer key, LALT on bottom-right outer key.
 // ┌───────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬──────┐
 // │  ESC  │  Q  │  W  │  E  │  R  │  T  │   │  Y  │  U  │  I  │  O  │  P  │  \   │
 // ├───────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
-// │  TAB  │GUI:A│ALT:S│SFT:D│CTL:F│  G  │   │  H  │CTL:J│SFT:K│ALT:L│GUI:;│  '   │
+// │  TAB  │  A  │  S  │  D  │  F  │  G  │   │  H  │  J  │  K  │  L  │  ;  │  '   │
 // ├───────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
-// │ LGUI  │ z   │ x   │ c   │ d   │ v   │   │  N  │  M  │  ,  │  .  │  /  │      │
+// │ LGUI  │ z   │ x   │ c   │ d   │ v   │   │  N  │  M  │  ,  │  .  │  /  │ LALT │
 // └───────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┴─────┴─────┴──────┘
 //   (sends raw B Z X C V; outputs z x c d v after ANSI Colemak-DH)
 //                     │LCTRL│LSHFT│ SPC │   │BSPC │togNUM│FUN/RET│
@@ -134,8 +135,8 @@
             display-name = "Windows";
             bindings = <
    &kp ESC      &kp Q        &kp W        &kp E         &kp R         &kp T         &kp Y        &kp U        &kp I        &kp O        &kp P         &kp BSLH
-   &kp TAB      &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F  &kp G         &kp H        &hmr RCTRL J &hmr RSHFT K &hmr RALT L  &hmr RGUI SEMI &kp SQT
-   &kp LGUI     &kp B        &kp Z        &kp X         &kp C         &kp V         &kp N        &kp M        &kp COMMA    &kp DOT      &kp FSLH      &trans
+   &kp TAB      &kp A        &kp S        &kp D         &kp F         &kp G         &kp H        &kp J        &kp K        &kp L        &kp SEMI      &kp SQT
+   &kp LGUI     &kp B        &kp Z        &kp X         &kp C         &kp V         &kp N        &kp M        &kp COMMA    &kp DOT      &kp FSLH      &kp LALT
                                           &kp LCTRL     &kp LSHFT     &kp SPACE     &bspc_del    &tog NUM     &lt FUN RET
             >;
         };
